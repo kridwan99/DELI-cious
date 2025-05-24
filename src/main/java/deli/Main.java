@@ -1,10 +1,11 @@
 package deli;
 
-import deli.ui.MenuUI;
+import deli.screens.HomeScreen;
 
 public class Main {
+
     public static void main(String[] args) {
-        MenuUI menu = new MenuUI();
-        menu.start();
+        HomeScreen homeScreen = new HomeScreen();
+        homeScreen.display();
     }
 }
