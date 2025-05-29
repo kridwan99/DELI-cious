@@ -46,13 +46,13 @@ A Java-based Point-of-Sale CLI application for a sandwich shop. Customers can bu
 <summary>🖥️ Application Interface</summary>
 
 #### 🏠 Home Menu:
-![Home Menu](java/screenshots/home.png)
+![Home Menu](src/main/screenshots/home.png)
 
 #### 🥪 Sandwich Builder:
 ![Sandwich Builder](java/screenshots/sandwich.png)
 
 #### 📄 Receipt Output:
-![Receipt Output](java/screenshots/receipt.png)
+![Receipt Output](src/main/screenshots/receipt.png)
 
 </details>
 
@@ -60,7 +60,7 @@ A Java-based Point-of-Sale CLI application for a sandwich shop. Customers can bu
 <summary>🧪 Test Flowchart</summary>
 
 ### 📈 Full Flow from Start to Checkout
-![Test Flow](java/screenshots/ordering-flow.png)
+![Test Flow](src/main/screenshots/ordering-flow2.png)
 
 </details>
 
