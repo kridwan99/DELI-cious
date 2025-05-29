@@ -1,41 +1,35 @@
+// File: ReceiptService.java
 package deli.services;
 
 import deli.models.Order;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-/**
- * Service to handle saving order receipts.
- */
 public class ReceiptService {
+    private static final String RECEIPT_FOLDER = "receipts";
 
-    /**
-     * Saves the order receipt to a file inside the "receipts" folder.
-     * The filename is based on the current timestamp.
-     *
-     * @param order The order to save.
-     */
-    public void saveReceipt(Order order) {
-        // Ensure the "receipts" directory exists
-        File directory = new File("receipts");
-        if (!directory.exists()) {
-            directory.mkdirs(); // Create the directory if it doesn't exist
-        }
+    public static void saveReceipt(Order order) {
+        try {
+            File folder = new File(RECEIPT_FOLDER);
+            if (!folder.exists()) {
+                folder.mkdirs();
+            }
 
-        // Generate timestamp-based filename
-        String timestamp = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
-        File receiptFile = new File(directory, timestamp + ".txt");
+            String timestamp = LocalDateTime.now()
+                    .format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+            String filename = RECEIPT_FOLDER + "/" + timestamp + ".txt";
 
-        // Save receipt
-        try (PrintWriter writer = new PrintWriter(new FileWriter(receiptFile))) {
-            writer.println(order.toString()); // Write order details
-            System.out.println("✅ Receipt saved: " + receiptFile.getAbsolutePath());
+            try (FileWriter writer = new FileWriter(filename)) {
+                writer.write(order.getReceiptText());
+            }
+
+            System.out.println("Receipt saved to " + filename);
         } catch (IOException e) {
-            System.err.println("⚠️ Error saving receipt: " + e.getMessage());
+            System.err.println("Error saving receipt: " + e.getMessage());
         }
     }
 }

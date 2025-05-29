@@ -1,13 +1,24 @@
 package deli.models;
 
-// Represents free toppings (no additional cost)
-public class RegularTopping extends AbstractTopping {
+public class RegularTopping implements Topping {
+    private final String name;
+
     public RegularTopping(String name) {
-        super(name, false); // Regular toppings are never "extra"
+        this.name = name;
     }
 
     @Override
-    public double getPrice(SandwichSize size) {
-        return 0.0; // Regular toppings are always free
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public double getPrice(int sizeInInches) {
+        return 0.0;
+    }
+
+    @Override
+    public boolean isPremium() {
+        return false;
     }
 }

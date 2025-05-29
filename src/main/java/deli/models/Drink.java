@@ -1,26 +1,33 @@
 package deli.models;
 
-// Represents a drink item
 public class Drink {
-    private final String size;
-    private final String flavor;
+    private DrinkSize size;
+    private String flavor;
 
-    public Drink(String size, String flavor) {
-        this.size = size.toLowerCase(); // Convert to lowercase for uniformity
+    public Drink(DrinkSize size, String flavor) {
+        this.size = size;
         this.flavor = flavor;
     }
 
-    public double getPrice() { // Determines price based on size
+    public double getPrice() {
         return switch (size) {
-            case "small" -> 2.00;
-            case "medium" -> 2.50;
-            case "large" -> 3.00;
-            default -> 0.0;
+            case SMALL -> 2.00;
+            case MEDIUM -> 2.50;
+            case LARGE -> 3.00;
         };
     }
 
+    public String getFlavor() {
+        return flavor;
+    }
+
+    public DrinkSize getSize() {
+        return size;
+    }
+
     @Override
-    public String toString() { // Formats drink selection for display
-        return flavor + " (" + size + ")";
+    public String toString() {
+        return "*****Drink*****\n" +
+                flavor + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
 }

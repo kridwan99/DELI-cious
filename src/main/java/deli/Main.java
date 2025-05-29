@@ -1,11 +1,15 @@
 package deli;
 
-import deli.screens.HomeScreen;
+import deli.ui.HomeMenuUI;
 
 public class Main {
-
     public static void main(String[] args) {
-        HomeScreen homeScreen = new HomeScreen();
-        homeScreen.display();
+        new HomeMenuUI().display();
     }
 }
+
+//✅ Sandwich
+//
+//✅ Drink
+//
+//✅ Chips

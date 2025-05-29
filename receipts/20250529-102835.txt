@@ -1,0 +1,11 @@
+ORDER SUMMARY:
+
+*****Sandwich*****
+Bread: wheat
+Toasted: No
+Premium Toppings: 
+Regular Toppings: vinaigrette 
+Price: $5.50
+
+
+Here is your Total: $5.50

@@ -1,0 +1,14 @@
+ORDER SUMMARY:
+
+*****Sandwich (BLT)*****
+Bread: white
+Toasted: Yes
+Premium Toppings: bacon cheddar 
+Regular Toppings: lettuce tomato ranch 
+Price: $10.50
+
+*****Drink*****
+orange - $3.00
+
+
+Here is your Total: $13.50

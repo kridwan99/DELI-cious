@@ -1,0 +1,11 @@
+ORDER SUMMARY:
+
+*****Sandwich*****
+Bread: white
+Toasted: Yes
+Premium Toppings: 
+Regular Toppings: thousand islands 
+Price: $8.50
+
+
+Here is your Total: $8.50

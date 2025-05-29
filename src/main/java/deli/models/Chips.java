@@ -1,19 +1,23 @@
 package deli.models;
 
-// Represents a chip item
 public class Chips {
-    private final String type;
+    private String type;
 
     public Chips(String type) {
         this.type = type;
     }
 
-    public double getPrice() { // Fixed price for all chips
+    public double getPrice() {
         return 1.50;
     }
 
+    public String getType() {
+        return type;
+    }
+
     @Override
-    public String toString() { // Formats chips selection for display
-        return type + " Chips";
+    public String toString() {
+        return "*****Chips*****\n" +
+                type + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
 }
