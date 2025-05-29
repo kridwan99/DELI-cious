@@ -17,7 +17,7 @@ public class HomeMenuUI {
         while (running) {
             System.out.println("\n====================================");
             System.out.println("     WELCOME TO DELI-cious RESTAURANT! 🥪");
-            System.out.println("         Point-of-Sale System");
+           // System.out.println("         Point-of-Sale System");
             System.out.println("====================================");
             System.out.println("1) Start New Order");
             System.out.println("2) View Receipts");

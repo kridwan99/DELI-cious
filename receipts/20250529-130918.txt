@@ -1,0 +1,21 @@
+------ RECEIPT ------
+*****Sandwich*****
+Bread: white
+Size: 12
+Toasted: Yes
+Premium Toppings: 
+Regular Toppings: ranch 
+Price: $8.50
+*****Sandwich (BLT)*****
+Bread: White
+Size: 8
+Toasted: Yes
+Premium Toppings: Bacon Cheddar 
+Regular Toppings: Lettuce Tomato Ranch 
+Price: $10.50
+*****Drink*****
+lemonade - $3.00
+
+---------------------
+Total: $22.00
+---------------------

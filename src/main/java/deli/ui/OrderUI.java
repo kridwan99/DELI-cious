@@ -1,9 +1,8 @@
 package deli.ui;
 
-import deli.models.Sandwich;
-import deli.models.SignatureSandwich;
+import deli.models.*;
 import deli.services.OrderService;
-import deli.utils.InputHelper;
+import deli.services.ReceiptService;
 import deli.utils.SignUpHelper;
 
 import java.util.Scanner;
@@ -11,6 +10,7 @@ import java.util.Scanner;
 public class OrderUI {
     private final Scanner scanner = new Scanner(System.in);
     private final OrderService orderService;
+    private final ReceiptService receiptService = new ReceiptService(); // ✅ added
 
     public enum Sauce {
         MAYO, MUSTARD, KETCHUP, RANCH, THOUSAND_ISLANDS, VINAIGRETTE;
@@ -51,7 +51,7 @@ public class OrderUI {
                 case "2" -> new DrinkUI().addDrink(orderService);
                 case "3" -> new ChipsUI().addChips(orderService);
                 case "4" -> {
-                    System.out.println("\n" + orderService.getCurrentOrder().getReceiptText());
+                    System.out.println("\n" + receiptService.generateReceipt(orderService.getCurrentOrder()));
 
                     System.out.print("Would you like delivery? (yes/no): ");
                     if (scanner.nextLine().equalsIgnoreCase("yes")) {
@@ -86,11 +86,11 @@ public class OrderUI {
 
         switch (choice) {
             case "1" -> {
-                sandwich = SignatureSandwich.makeBLT();
+                sandwich = new BLTSandwich();
                 System.out.println("BLT added.");
             }
             case "2" -> {
-                sandwich = SignatureSandwich.makePhillyCheeseSteak();
+                sandwich = new PhillyCheeseSteakSandwich();
                 System.out.println("Philly Cheese Steak added.");
             }
             default -> System.out.println("Invalid choice.");

@@ -1,4 +1,3 @@
-// Sandwich.java
 package deli.models;
 
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ public class Sandwich {
     private List<Topping> toppings;
     private String name; // Optional name like "BLT"
 
+    // Constructor without name
     public Sandwich(String bread, int size, boolean toasted) {
         this.bread = bread;
         this.size = size;
@@ -19,15 +19,18 @@ public class Sandwich {
         this.name = null;
     }
 
+    // Constructor with name (e.g., for signature sandwiches)
     public Sandwich(String name, String bread, int size, boolean toasted) {
         this(bread, size, toasted);
         this.name = name;
     }
 
+    // Add topping to the sandwich
     public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
+    // Calculate price based on size and toppings
     public double getPrice() {
         double price = switch (size) {
             case 4 -> 5.50;
@@ -43,6 +46,7 @@ public class Sandwich {
         return price;
     }
 
+    // Getters
     public List<Topping> getToppings() {
         return toppings;
     }
@@ -59,6 +63,11 @@ public class Sandwich {
         return name;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    // String representation of the sandwich
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -68,6 +77,7 @@ public class Sandwich {
         }
         sb.append("*****\n");
         sb.append("Bread: ").append(bread).append("\n");
+        sb.append("Size: ").append(size).append("\n"); // ✅ Added line to fix your test
         sb.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
 
         sb.append("Premium Toppings: ");

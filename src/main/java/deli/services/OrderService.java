@@ -23,19 +23,19 @@ public class OrderService {
 
     public void addSandwich(Sandwich sandwich) {
         if (currentOrder != null) {
-            currentOrder.addSandwich(sandwich);
+            currentOrder.addItem(sandwich);  // ✅ FIXED
         }
     }
 
     public void addDrink(Drink drink) {
         if (currentOrder != null) {
-            currentOrder.addDrink(drink);
+            currentOrder.addItem(drink);     // ✅ FIXED
         }
     }
 
     public void addChips(Chips chips) {
         if (currentOrder != null) {
-            currentOrder.addChips(chips);
+            currentOrder.addItem(chips);     // ✅ FIXED
         }
     }
 

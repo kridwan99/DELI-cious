@@ -22,7 +22,7 @@ public class Order {
         double total = 0.0;
         for (Object item : items) {
             if (item instanceof Sandwich s) {
-                total += s.getPrice() / 100.0; // If stored in cents
+                total += s.getPrice(); // ✅ Already in dollars
             } else if (item instanceof Drink d) {
                 total += d.getPrice();
             } else if (item instanceof Chips c) {
