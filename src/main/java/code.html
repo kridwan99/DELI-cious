@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Highlights - DELI-cious</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>💡 Code Highlights from DELI-cious</h1>
+    <p>Take a closer look at key Java classes and how they power the sandwich ordering experience.</p>
+  </header>
+
+  <section class="code-block">
+    <h2>🥪 Sandwich Builder Logic</h2>
+    <p><strong>Feature Description:</strong> This part of the application lets customers fully customize their sandwich. They choose the size (4", 8", 12"), select a type of bread, and add as many meats, cheeses, toppings, and sauces as they like.</p>
+    <p><strong>Purpose of Code:</strong> The Java class below stores the sandwich details as the user builds it. Each choice updates the sandwich object, which is later used to calculate price and show the receipt.</p>
+    <pre><code>public class Sandwich {
+    private String size;
+    private String bread;
+    private List<Topping> toppings;
+
+    public Sandwich(String size, String bread) {
+        this.size = size;
+        this.bread = bread;
+        this.toppings = new ArrayList<>();
+    }
+
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
+    }
+
+    // More methods like getPrice(), toString(), etc.
+}
+    </code></pre>
+    <p><strong>Explanation:</strong> This class builds a custom sandwich. The customer selects the size, bread, and adds toppings one by one.</p>
+  </section>
+
+  <section class="code-block">
+    <h2>🧾 Receipt Generation</h2>
+    <p><strong>Feature Description:</strong> When the order is finished, the system generates a receipt showing every item the customer selected, with a total cost.</p>
+    <p><strong>Purpose of Code:</strong> This class handles writing order details to a text file in the <code>receipts/</code> folder. The filename includes the timestamp for uniqueness.</p>
+    <pre><code>public class ReceiptService {
+    public void saveReceipt(Order order) {
+        String fileName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipts/" + fileName))) {
+            writer.write(order.toString());
+        } catch (IOException e) {
+            System.out.println("Error saving receipt: " + e.getMessage());
+        }
+    }
+}
+    </code></pre>
+    <p><strong>Explanation:</strong> This class creates a new receipt file using the current date and time, then saves the customer's order details into that file.</p>
+  </section>
+
+  <section class="code-block">
+    <h2>📋 Order Management</h2>
+    <p><strong>Feature Description:</strong> The application needs to track multiple items in a single order, including sandwiches, drinks, and chips.</p>
+    <p><strong>Purpose of Code:</strong> The <code>Order</code> class holds all customer selections and provides methods to calculate the final total.</p>
+    <pre><code>public class Order {
+    private List&lt;Sandwich&gt; sandwiches = new ArrayList<>();
+    private List&lt;Drink&gt; drinks = new ArrayList<>();
+    private List&lt;Chips&gt; chips = new ArrayList<>();
+
+    public void addSandwich(Sandwich sandwich) {
+        sandwiches.add(sandwich);
+    }
+
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
+    }
+
+    public void addChips(Chips chip) {
+        chips.add(chip);
+    }
+
+    public double calculateTotal() {
+        // logic to calculate full order cost
+    }
+}
+    </code></pre>
+    <p><strong>Explanation:</strong> The <code>Order</code> class is like a shopping cart. It collects all food and drink items, and helps calculate the final bill.</p>
+  </section>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="screens.html">📸 Screenshots</a>
+    <a href="future.html">🚀 Future Features</a>
+  </nav>
+
+  <footer>
+    <p>Created by Ridwan Kadar | Capstone 2 - DELI-cious</p>
+  </footer>
+</body>
+</html>
